@@ -1,0 +1,10 @@
+.banner {
+  min-height: 540px;
+  position: relative;
+  background: url('../images/main-bg.webp') no-repeat center/contain;
+
+  &-video {
+    @include center();
+    top: 30%;
+  }
+}

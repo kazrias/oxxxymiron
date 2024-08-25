@@ -1,16 +1,19 @@
-import React from 'react'
-import { SOCIALS } from '../../utils/constants'
+import React from 'react';
 
-export const Socials = () => {
+import { SOCIALS } from '../../utils/constants';
+
+import { Icon } from '../Icon/Icon';
+
+export const Socials = ({ width, height }) => {
   return (
-    <ul className="socials">
+    <ul className='socials'>
       {SOCIALS.map(({ icon, link }) => (
         <li key={icon} title={icon} className='socials-item'>
           <a href={link} target='_blank'>
-          
-          </a>  
+            <Icon name={icon} width={width} height={height} />
+          </a>
         </li>
       ))}
     </ul>
-  )
-}
+  );
+};

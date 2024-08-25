@@ -1,7 +1,9 @@
-import React from 'react'
-
+import React from 'react';
+import { MainBanner } from './MainBanner';
 export const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <main className='main'>
+      <MainBanner />
+    </main>
+  );
+};
