@@ -15,3 +15,22 @@ export const tourItemCollectionQuery = `{
   }
 }
 `;
+
+export const tracksItemCollectionQuery = `{
+  trackCollection{
+    items{
+      sys{
+        id
+      }
+      date
+      title
+      link{
+        url
+      }
+      cover{
+      url
+      }
+    }
+  }
+}
+`;

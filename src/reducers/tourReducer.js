@@ -7,7 +7,7 @@ const initialState = {
   items: [],
   isLoading: false,
 }
-export const getToutItems = createAsyncThunk("tourItems/getTourItems", async (_, thunkAPI) => {
+export const getTourItems = createAsyncThunk("tourItems/getTourItems", async (_, thunkAPI) => {
   try {
     const data = await request(tourItemCollectionQuery);
     const { items } = data.tourItemCollection;
@@ -21,12 +21,12 @@ const tourItemsSlice = createSlice({
   name: 'tourItems',
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(getToutItems.pending, (state) => {
+    builder.addCase(getTourItems.pending, (state) => {
       state.isLoading = true;
-    }).addCase(getToutItems.fulfilled, (state, { payload }) => {
+    }).addCase(getTourItems.fulfilled, (state, { payload }) => {
       state.isLoading = false;
       state.items = payload;
-    }).addCase(getToutItems.rejected, (state) => {
+    }).addCase(getTourItems.rejected, (state) => {
       state.isLoading = false;
     })
   }
