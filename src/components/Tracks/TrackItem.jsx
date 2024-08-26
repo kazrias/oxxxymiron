@@ -19,7 +19,7 @@ export const TrackItem = ({
       className='track-item'
       animateIn='fadeInLeft'
       animateOut='fadeOutRight'
-      delay={i * 100}
+      delay={i * 50}
     >
       <div className='track' onClick={onClick}>
         <div className='track-image'>
