@@ -17,7 +17,7 @@ export const TourItem = ({
         animateIn='fadeInLeft'
         animateOut='fadeOutRight'
         delay={i * 100}
-        offset={250}
+        offset={150}
       >
         <div className='tour-item__info'>
           <div className='tour-item__date'>
@@ -34,7 +34,7 @@ export const TourItem = ({
           <a
             href={ticketLink || videoLink}
             target='_blank'
-            className='tour-item__button'
+            className='tour-item__button link'
           >
             {ticketLink ? (
               <>
@@ -42,11 +42,14 @@ export const TourItem = ({
                 <Icon name='arrow-right' />
               </>
             ) : (
-              <span>Видео</span>
+              <>
+                <span>Видео</span>
+                <Icon name='arrow-right' />
+              </>
             )}
           </a>
         ) : (
-          <button className='tour-_item_button soldout'>Sold Out</button>
+          <button className='tour-item__button soldout'>Sold Out</button>
         )}
       </ScrollAnimation>
     </li>
