@@ -1,13 +1,54 @@
 import React from 'react';
-import { Section } from '../Section/Section';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
-
-export const TourItem = () => {
+import ScrollAnimation from 'react-animate-on-scroll';
+import { Icon } from '../Icon/Icon';
+export const TourItem = ({
+  date,
+  city,
+  place,
+  ticketLink,
+  videoLink,
+  soldOut,
+  i,
+}) => {
   return (
-    <Section className='tour'>
-      <div className='container'>
-        <SectionTitle text={'Концерты'} />
-      </div>
-    </Section>
+    <li>
+      <ScrollAnimation
+        className='tour-item'
+        animateIn='fadeInLeft'
+        animateOut='fadeOutRight'
+        delay={i * 100}
+        offset={250}
+      >
+        <div className='tour-item__info'>
+          <div className='tour-item__date'>
+            {new Date(date).toLocaleDateString('ru-RU', {
+              month: 'numeric',
+              day: 'numeric',
+              year: 'numeric',
+            })}
+          </div>
+          <p className='tour-item__place'>{place}</p>
+        </div>
+        <p className='tour-item__city'>{city}</p>
+        {!soldOut ? (
+          <a
+            href={ticketLink || videoLink}
+            target='_blank'
+            className='tour-item__button'
+          >
+            {ticketLink ? (
+              <>
+                <span>Билеты</span>
+                <Icon name='arrow-right' />
+              </>
+            ) : (
+              <span>Видео</span>
+            )}
+          </a>
+        ) : (
+          <button className='tour-_item_button soldout'>Sold Out</button>
+        )}
+      </ScrollAnimation>
+    </li>
   );
 };

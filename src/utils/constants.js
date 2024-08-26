@@ -1,4 +1,5 @@
-
+const spaceId = import.meta.env.VITE_SPACE_ID;
+export const MAIN_URL = `https://graphql.contentful.com/content/v1/spaces/${spaceId}`;
 export const MENU = [
   {
     name: "Концерты",

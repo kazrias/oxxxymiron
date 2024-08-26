@@ -1,0 +1,34 @@
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { request } from "../utils/common"
+import { tourItemCollectionQuery } from "../utils/queries"
+
+
+const initialState = {
+  items: [],
+  isLoading: false,
+}
+export const getToutItems = createAsyncThunk("tourItems/getTourItems", async (_, thunkAPI) => {
+  try {
+    const data = await request(tourItemCollectionQuery);
+    const { items } = data.tourItemCollection;
+    return items
+    // const {items}=data.to
+  } catch (err) {
+    return thunkAPI.rejectWithValue(err)
+  }
+})
+const tourItemsSlice = createSlice({
+  name: 'tourItems',
+  initialState,
+  extraReducers: (builder) => {
+    builder.addCase(getToutItems.pending, (state) => {
+      state.isLoading = true;
+    }).addCase(getToutItems.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.items = payload;
+    }).addCase(getToutItems.rejected, (state) => {
+      state.isLoading = false;
+    })
+  }
+})
+export default tourItemsSlice.reducer;
