@@ -19,6 +19,15 @@
     position: relative;
     align-items: center;
 
+    &:hover {
+      &:after {
+        opacity: 1;
+      }
+    }
+    &:hover &__title {
+      filter: drop-shadow(2px 4px 6px purple);
+    }
+
     &:after,
     &:before {
       content: '';
@@ -38,9 +47,11 @@
       opacity: .5;
       transition: opacity .3s;
     }
-    &__section{
+
+    &__section {
       margin-top: 222px;
     }
+
     &__wrapper {
       overflow: hidden;
       min-height: 504px;
@@ -60,6 +71,8 @@
       font-weight: 900;
       line-height: 125%;
       margin-top: 32px;
+      filter: drop-shadow(2px 4px 6px transparent);
+      transition: all .4s;
     }
 
     &__img {
