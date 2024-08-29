@@ -34,3 +34,19 @@ export const tracksItemCollectionQuery = `{
   }
 }
 `;
+
+export const newsItemCollectionQuery = `{
+  newsItemCollection {
+    items {
+      sys {
+        id
+      }
+      title
+      date
+      cover{
+        url
+      }
+    }
+  }
+}
+`
