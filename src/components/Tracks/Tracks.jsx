@@ -4,6 +4,7 @@ import { getTracksItems } from '../../reducers/tracksReducer';
 import { Section } from '../Section/Section';
 import { TrackItem } from './TrackItem';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { Link } from 'react-router-dom';
 
 export const Tracks = () => {
   const dispatch = useDispatch();
@@ -45,6 +46,9 @@ export const Tracks = () => {
             })}
           </div>
         )}
+        <Link to='/tracks' className='button-more'>
+          Все релизы
+        </Link>
       </div>
     </Section>
   );
